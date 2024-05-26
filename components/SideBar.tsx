@@ -13,7 +13,7 @@ type Props ={
 const SideBar = ({className}: Props) => {
   return (
     <div className={cn('left-0 top-0 border-r-2 flex-col h-full lg:w-[256px] lg:fixed flex', className)}>
-      <Link href="/learn">
+      <Link href="/">
         <div className='pt-8 pl-4 pb-7 flex items-center gap-x-3'>
           <Image src="/images/giraffe.png" alt='Giraffe' width={40} height={40}/>
           <h1 className='text-2xl font-extrabold text-green-600 tracking-wide'>

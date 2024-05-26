@@ -1,20 +1,38 @@
 'use client'
 
-import { courses } from '@/db/schema'
-import React from 'react'
+import { courses, userProgress } from '@/db/schema'
+import React, { useTransition } from 'react'
 import Card from './Card'
+import { useRouter } from 'next/navigation'
+import { upsertUserProgress } from '@/actions/user-progress'
 
 
 interface Props {
     courses: typeof courses.$inferSelect[],
-    activeCourseId: number
+    activeCourseId?: typeof userProgress.$inferSelect.activeCourseId,
 }
 const List = ({courses, activeCourseId}: Props) => {
+
+  const router = useRouter()
+  const [pending, startTransition] = useTransition()
+
+  const onClick = (id:number) => {
+    if(pending) return;
+
+    if(id === activeCourseId) {
+      return router.push("/learn")
+    }
+
+    startTransition(() => {
+      upsertUserProgress(id)
+    })
+  }
+
   return (
     <div className='pt-6 grid grid-cols-2 gap-4 lg:grid-cols-[repeat(auto-fill,minmax(210,1fr))]'>
         {
             courses.map((course) => (
-                <Card key={course.id} id={course.id} title={course.title} imageSrc={course.imageSrc} onClick={() => {}} disabled={false} active={course.id===activeCourseId} />
+                <Card key={course.id} id={course.id} title={course.title} imageSrc={course.imageSrc} onClick={onClick} disabled={false} active={course.id===activeCourseId} />
             ))
         }
 
