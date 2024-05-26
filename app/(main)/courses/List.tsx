@@ -5,6 +5,7 @@ import React, { useTransition } from 'react'
 import Card from './Card'
 import { useRouter } from 'next/navigation'
 import { upsertUserProgress } from '@/actions/user-progress'
+import { toast } from 'sonner'
 
 
 interface Props {
@@ -25,6 +26,7 @@ const List = ({courses, activeCourseId}: Props) => {
 
     startTransition(() => {
       upsertUserProgress(id)
+      .catch(() => toast.error("Something went wrong!"))
     })
   }
 

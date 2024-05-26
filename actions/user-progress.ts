@@ -21,6 +21,8 @@ export const upsertUserProgress = async (courseId: number) => {
         throw new Error("Course not found.")
     }
 
+    // throw new Error("Test")
+
     // if(!course.units.length || !course.units[0].lessons.length) {
     //     throw new Error("Course is empty")
     // }
@@ -30,8 +32,8 @@ export const upsertUserProgress = async (courseId: number) => {
     if(existingUserProgress) {
         await db.update(userProgress).set({
             activeCourseId: courseId,
-            userName: user.firstName || "User",
-            userImageSrc: user.imageUrl || "/images/hero.png"
+            userName: user?.firstName || "User",
+            userImageSrc: user?.imageUrl || "/images/hero.png"
         })
 
         revalidatePath("/courses")
@@ -42,8 +44,8 @@ export const upsertUserProgress = async (courseId: number) => {
     await db.insert(userProgress).values({
         userId,
         activeCourseId: courseId,
-        userName: user.firstName || "User",
-        userImageSrc: user.imageUrl || "/images/hero.png"
+        userName: user?.firstName || "User",
+        userImageSrc: user?.imageUrl || "/images/hero.png"
     })
 
     revalidatePath("/courses")
