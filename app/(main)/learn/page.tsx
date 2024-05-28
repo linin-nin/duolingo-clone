@@ -3,31 +3,38 @@ import StickWrapper from '@/components/StickWrapper'
 import React from 'react'
 import Header from './Header'
 import UserProgress from '@/components/UserProgress'
-import { getUserProgress } from '@/db/queries'
+import { getUnits, getUserProgress } from '@/db/queries'
 import { redirect } from 'next/navigation'
 
 const LearnPage = async () => {
 
   const userProgressData = getUserProgress()
-  const [ userProgress] = await Promise.all([
-    userProgressData
+  const unitsData = getUnits()
+
+  const [ userProgress, units] = await Promise.all([
+    userProgressData,
+    unitsData
   ])
+
   if(!userProgress || !userProgress.activeCourse) {
     redirect("/courses")
   }
-
   
   return (
     <div className='flex flex-row-reverse gap-[48px] px-6'>
       <StickWrapper>
-        <UserProgress activeCourse={{ title: "Korean", imageSrc: "/image"}} hearts={5} points={100} hasActiveSubscription={false}/>
+        <UserProgress activeCourse={userProgress.activeCourse} hearts={userProgress.hearts} points={userProgress.points} hasActiveSubscription={false}/>
       </StickWrapper>
 
       <FeedWrapper>
-        <Header title="Korean"/>
-        <div className='space-y-4'>
-          
-        </div>
+        <Header title={userProgress.activeCourse.title}/>
+        {
+          units.map((unit) => (
+            <div className='mb-10' key={unit.id}>
+              
+            </div>
+          ))
+        }
       </FeedWrapper>
     </div>
   )
