@@ -2,8 +2,8 @@ import Image from 'next/image'
 import React from 'react'
 import { Button } from './ui/button'
 import Link from 'next/link'
-import { Quests as quests } from '@/constants'
 import { Progress } from './ui/progress'
+import { quests } from '@/constants'
 
 const Quests = ({ points}: {points: number}) => {
   return (

@@ -3,6 +3,8 @@ import Promo from '@/components/Promo'
 import StickWrapper from '@/components/StickWrapper'
 import UserProgress from '@/components/UserProgress'
 import Quests from '@/components/quests'
+import { Avatar, AvatarImage } from '@/components/ui/avatar'
+import { Separator } from '@/components/ui/separator'   
 import { getTopTenUsers, getUserProgress, getUserSubscription } from '@/db/queries'
 import Image from 'next/image'
 import { redirect } from 'next/navigation'
@@ -26,7 +28,7 @@ const LeaderBoardPage = async() => {
 
     const isPro = !!userSubscription?.isActive
   return (
-    <div className='flex flex-col-reverse gap-[48px] px-6'>
+    <div className='flex flex-row-reverse gap-[48px] px-6'>
         <StickWrapper>
             <UserProgress 
                 activeCourse={userProgress.activeCourse}
@@ -41,7 +43,7 @@ const LeaderBoardPage = async() => {
         </StickWrapper>
         <FeedWrapper>
             <div className='w-full flex flex-col items-center'>
-                <Image src="/images/leaderboard.png" alt='leaderboard' height={90} width={90} />
+                <Image src="/images/leaderboard.svg" alt='leaderboard' height={90} width={90} />
                 <h1 className='text-center font-bold text-neutral-800 text-2xl my-6'>
                     Leaderboard
                 </h1>

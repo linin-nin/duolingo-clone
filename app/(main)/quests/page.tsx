@@ -3,7 +3,7 @@ import Promo from '@/components/Promo'
 import StickWrapper from '@/components/StickWrapper'
 import UserProgress from '@/components/UserProgress'
 import { Progress } from '@/components/ui/progress'
-import { Quests } from '@/constants'
+import { quests } from '@/constants'
 import { getUserProgress, getUserSubscription } from '@/db/queries'
 import Image from 'next/image'
 import { redirect } from 'next/navigation'
@@ -27,7 +27,7 @@ const QuestPage = async() => {
     const isPro = !!userSubscription?.isActive
 
   return (
-    <div className='flex flex-col-reverse gap-[48px] px-6'>
+    <div className='flex flex-row-reverse gap-[48px] px-6'>
         <StickWrapper>
             <UserProgress 
                 activeCourse={userProgress.activeCourse}
@@ -41,7 +41,7 @@ const QuestPage = async() => {
         </StickWrapper>
         <FeedWrapper>
             <div className='w-full flex flex-col items-center'>
-                <Image src="/images/quests.png" alt='quests' height={90} width={90} />
+                <Image src="/images/quests.svg" alt='quests' height={90} width={90} />
                 <h1 className='text-center font-bold text-neutral-800 text-2xl my-6'>
                     Quests
                 </h1>
@@ -49,7 +49,7 @@ const QuestPage = async() => {
                     Completed quests by earning points
                 </p>
                 <ul className='w-full'>
-                    {Quests.map((quest) => {
+                    {quests.map((quest) => {
                         const progress = (userProgress.points / quest.value) * 100
                         return (
                             <div

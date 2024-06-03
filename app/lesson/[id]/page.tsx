@@ -5,12 +5,14 @@ import Quiz from '../Quiz'
 
 interface Props {
     param: {
-        lessonId: number
+        id: number
     }
 }
 
 const LessonIdPage = async({param}:Props) => {
-    const lessonData = getLessons(param.lessonId)
+
+    // console.log("this lession Id : ", param.id)
+    const lessonData = getLessons(1)
     const userProgressData = getUserProgress()
     const userSubscriptionData = getUserSubscription()
 
@@ -34,9 +36,27 @@ const LessonIdPage = async({param}:Props) => {
         initailLessonChallenges={lesson.challenges}
         initailHearts={userProgress.hearts}
         initailPercentage={initailPercentage}
-        userSubscription={userSubscription} 
+        // userSubscription={userSubscription} 
+        userSubscription={null} 
     />
   )
 }
 
 export default LessonIdPage
+
+
+// import React from 'react'
+
+
+// interface Props {
+//     param: {
+//         id: string
+//     }
+// }
+// const page = ({ param }:Props) => {
+//   return (
+//     <div>Lession { param.id }</div>
+//   )
+// }
+
+// export default page

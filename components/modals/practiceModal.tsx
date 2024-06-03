@@ -21,7 +21,7 @@ const PracticeModal = () => {
         <DialogContent className='max-w-md'>
           <DialogHeader>
             <div className='flex items-center w-full justify-center mb-5'>
-              <Image src="/images/hero/png" height={100} width={100} alt='MMM'/>
+              <Image src="/images/duck.png" height={100} width={100} alt='MMM'/>
             </div>
             <DialogTitle className='text-center font-bold text-2xl'>
               Practice lesson

@@ -22,13 +22,13 @@ const UserProgress = ({activeCourse, hearts, points, hasActiveSubscription}:Prop
         </Link>
         <Link href="/shop">
             <Button variant='ghost' className='text-orange-500'>
-                <Image src='/point' alt='Point' height={28} width={28} className='mr-2'/>
+                <Image src='/images/point.svg' alt='Point' height={28} width={28} className='mr-2'/>
                 {points}
             </Button>
         </Link>
         <Link href="/shop">
             <Button variant='ghost' className='text-rose-500'>
-                <Image src='/Heart' alt='Heart' height={22} width={22} className='mr-2'/>
+                <Image src='/images/heart.svg' alt='Heart' height={22} width={22} className='mr-2'/>
                 {hasActiveSubscription ? <InfinityIcon  className='w-4 h-4 stroke-[3]'/> : hearts}
             </Button>
         </Link>

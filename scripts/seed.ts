@@ -24,22 +24,27 @@ const main = async () => {
             {
             id: 1,
             title: "Korean",
-            imageSrc: "/images/hero.png"
+            imageSrc: "/images/kr.svg"
             },
             {
             id: 2,
-            title: "Khmer",
-            imageSrc: "/images/giraffe.png"
+            title: "Japaness",
+            imageSrc: "/images/jp.svg"
             },
             {
             id: 3,
-            title: "English",
-            imageSrc: "/images/cow.png"
+            title: "Khmer",
+            imageSrc: "/images/cd.svg"
             },
             {
             id: 4,
+            title: "English",
+            imageSrc: "/images/usa.svg"
+            },
+            {
+            id: 5,
             title: "Chiness",
-            imageSrc: "/images/dog.png"
+            imageSrc: "/images/ch.svg"
             },
         ])
 

@@ -68,7 +68,9 @@ const Quiz = ({ initailHearts, initailLessonChallenges, initailLessonId, initail
     const [status, setStatus] = useState<"correct" | "wrong" | "none">("none")
 
     const challenge = challenges[activeIndex]
-    const options = challenge.challengeOptions ?? []
+    const options = challenge.challengeOptions
+
+    console.log(options)
 
     const onNext = () => {
         setActiveIndex((current) => current + 1)

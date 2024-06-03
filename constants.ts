@@ -3,7 +3,7 @@ export const POINT_TO_REFILL = 10
 
 export const DAY_IN_MS = 86_400_000
 
-export const Quests = [
+export const quests = [
     {
         title: "Earn 20 Xp",
         value: 20

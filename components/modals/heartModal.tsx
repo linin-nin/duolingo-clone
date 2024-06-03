@@ -27,7 +27,7 @@ const HeartModal = () => {
         <DialogContent className='max-w-md'>
           <DialogHeader>
             <div className='flex items-center w-full justify-center mb-5'>
-              <Image src="/images/hero/png" height={80} width={80} alt='MMM'/>
+              <Image src="/images/heart.svg" height={80} width={80} alt='MMM'/>
             </div>
             <DialogTitle className='text-center font-bold text-2xl'>
               You ran out of hearts!
