@@ -25,10 +25,10 @@ const ExitModal = () => {
               <Image src="/images/giraffe.png" height={80} width={80} alt='MMM'/>
             </div>
             <DialogTitle className='text-center font-bold text-2xl'>
-              Wait, don't go!
+              Wait, don&apos;t go!
             </DialogTitle>
             <DialogDescription className='text-center text-base'>
-              You're about to leave the lesson. Are you sure?
+              You&apos;re about to leave the lesson. Are you sure?
             </DialogDescription>
           </DialogHeader>
           <DialogFooter className='mb-4'>

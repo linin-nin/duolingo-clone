@@ -5,12 +5,12 @@ import Link from 'next/link'
 import { Progress } from './ui/progress'
 import { quests } from '@/constants'
 
-const Quests = ({ points}: {points: number}) => {
+const Quest = ({ points}: {points: number}) => {
   return (
     <div className='border-2 rounded-xl p-4 space-y-4'>
         <div className='flex items-center w-full space-y-2 justify-between'>
             <h3 className='font-bold text-lg'> 
-                Quests
+              Quests
             </h3>
             <Link href='/quests'>
                 <Button
@@ -43,4 +43,4 @@ const Quests = ({ points}: {points: number}) => {
   )
 }
 
-export default Quests
+export default Quest

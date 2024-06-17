@@ -1,4 +1,4 @@
-import { getLessons, getUserProgress, getUserSubscription } from '@/db/queries'
+import { getLessons, getUserProgress } from '@/db/queries'
 import { redirect } from 'next/navigation'
 import React from 'react'
 import Quiz from './Quiz'
@@ -6,12 +6,11 @@ import Quiz from './Quiz'
 const LessonPage = async() => {
     const lessonData = getLessons()
     const userProgressData = getUserProgress()
-    const userSubscriptionData = getUserSubscription()
+    // const userSubscriptionData = getUserSubscription()    Todo: fix UserSubscription
 
-    const [ lesson, userProgress, userSubscription ] = await Promise.all([
+    const [ lesson, userProgress ] = await Promise.all([
         lessonData,
         userProgressData,
-        userSubscriptionData
     ])
 
     if(!lesson || !userProgress) {
@@ -28,7 +27,7 @@ const LessonPage = async() => {
         initailLessonChallenges={lesson.challenges}
         initailHearts={userProgress.hearts}
         initailPercentage={initailPercentage}
-        userSubscription={userSubscription}
+        userSubscription={null}
     />
   )
 }

@@ -1,29 +1,28 @@
 import FeedWrapper from '@/components/FeedWrapper'
 import StickWrapper from '@/components/StickWrapper'
 import UserProgress from '@/components/UserProgress'
-import { getUserProgress, getUserSubscription } from '@/db/queries'
+import { getUserProgress } from '@/db/queries'
 import Image from 'next/image'
 import { redirect } from 'next/navigation'
 import React from 'react'
 import Items from './Items'
 import Promo from '@/components/Promo'
-import Quests from '@/components/quests'
+import Quest from '@/components/Quest'
 
 const ShopPage = async() => {
 
     const userProgressData = getUserProgress()
-    const userSubscriptionData = getUserSubscription()
+    // const userSubscriptionData = getUserSubscription()
 
-    const [userProgress, userSubscription] = await Promise.all([
+    const [userProgress] = await Promise.all([
         userProgressData,
-        userSubscriptionData
     ])
 
     if(!userProgress || !userProgress.activeCourse) {
         redirect('/courses')
     }
 
-    const isPro = !!userSubscription?.isActive
+    // const isPro = !!userSubscription?.isActive
   return (
     <div className='flex flex-row-reverse gap-[48px] px-6'>
         <StickWrapper>
@@ -31,12 +30,12 @@ const ShopPage = async() => {
                 activeCourse={userProgress.activeCourse}
                 hearts={userProgress.hearts}
                 points={userProgress.points}
-                hasActiveSubscription={isPro}
+                hasActiveSubscription={false}
             />
-            {!isPro && (
+            {/* {!isPro && (
               <Promo />
-            )}
-            <Quests points={userProgress.points}/>
+            )} */}
+            <Quest points={userProgress.points}/>
         </StickWrapper>
         <FeedWrapper>
             <div className='w-full flex flex-col items-center'>
@@ -50,7 +49,7 @@ const ShopPage = async() => {
                 <Items
                     hearts={userProgress.hearts}
                     points={userProgress.points}
-                    hasActiveSubscription={isPro}
+                    hasActiveSubscription={false}
                 />
             </div>
         </FeedWrapper>

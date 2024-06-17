@@ -21,7 +21,7 @@ export const POST = async (req: Request) => {
         return new NextResponse("Unauthorized", { status: 401})
 
     const body = await req.json()
-    const data = await db.insert(courses).values({
+    await db.insert(courses).values({
         ...body
     }).returning()
     const data = await db.query.courses.findMany()

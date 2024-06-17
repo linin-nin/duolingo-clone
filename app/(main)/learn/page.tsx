@@ -3,12 +3,12 @@ import StickWrapper from '@/components/StickWrapper'
 import React from 'react'
 import Header from './Header'
 import UserProgress from '@/components/UserProgress'
-import { getCourseProgress, getLessonPercentage, getUnits, getUserProgress, getUserSubscription } from '@/db/queries'
+import { getCourseProgress, getLessonPercentage, getUnits, getUserProgress } from '@/db/queries'
 import { redirect } from 'next/navigation'
 import Unit from './Unit'
 import { lessons, units as unitsSchem } from '@/db/schema'
 import Promo from '@/components/Promo'
-import Quests from '@/components/quests'
+import Quest from '@/components/Quest'
 
 const LearnPage = async () => {
 
@@ -16,14 +16,13 @@ const LearnPage = async () => {
   const courseProgressData = await getCourseProgress()
   const lessonPercentageData = getLessonPercentage()
   const unitsData = getUnits()
-  const userSubscriptionData = getUserSubscription()
+  // const userSubscriptionData = getUserSubscription()
 
-  const [ userProgress, units, courseProgress , lessonPercentage, userSubscription ] = await Promise.all([
+  const [ userProgress, units, courseProgress , lessonPercentage ] = await Promise.all([
     userProgressData,
     unitsData,
     courseProgressData,
     lessonPercentageData,
-    userSubscriptionData
   ])
 
   if(!userProgress || !userProgress.activeCourse) {
@@ -34,7 +33,7 @@ const LearnPage = async () => {
     redirect("/courses")
   }
 
-  const isPro = !!userSubscription?.isActive
+  // const isPro = !!userSubscription?.isActive
   
   return (
     <div className='flex flex-row-reverse gap-[48px] px-6'>
@@ -43,11 +42,11 @@ const LearnPage = async () => {
         activeCourse={userProgress.activeCourse} 
         hearts={userProgress.hearts} 
         points={userProgress.points} 
-        hasActiveSubscription={isPro}/>
-        {!isPro && (
+        hasActiveSubscription={false}/>
+        {/* {!isPro && (
           <Promo />
-        )}
-        <Quests points={userProgress.points}/>
+        )} */}
+        <Quest points={userProgress.points}/>
       </StickWrapper>
 
       <FeedWrapper>

@@ -4,7 +4,7 @@ import StickWrapper from '@/components/StickWrapper'
 import UserProgress from '@/components/UserProgress'
 import { Progress } from '@/components/ui/progress'
 import { quests } from '@/constants'
-import { getUserProgress, getUserSubscription } from '@/db/queries'
+import { getUserProgress } from '@/db/queries'
 import Image from 'next/image'
 import { redirect } from 'next/navigation'
 import React from 'react'
@@ -13,18 +13,17 @@ import React from 'react'
 const QuestPage = async() => {
 
     const userProgressData = getUserProgress()
-    const userSubscriptionData = getUserSubscription()
+    // const userSubscriptionData = getUserSubscription()
 
-    const [userProgress, userSubscription] = await Promise.all([
+    const [userProgress] = await Promise.all([
         userProgressData,
-        userSubscriptionData,
     ])
 
     if(!userProgress || !userProgress.activeCourse) {
         redirect('/courses')
     }
 
-    const isPro = !!userSubscription?.isActive
+    // const isPro = !!userSubscription?.isActive
 
   return (
     <div className='flex flex-row-reverse gap-[48px] px-6'>
@@ -33,11 +32,11 @@ const QuestPage = async() => {
                 activeCourse={userProgress.activeCourse}
                 hearts={userProgress.hearts}
                 points={userProgress.points}
-                hasActiveSubscription={isPro}
+                hasActiveSubscription={false}
             />
-             {!isPro && (
+             {/* {!isPro && (
               <Promo />
-            )}
+            )} */}
         </StickWrapper>
         <FeedWrapper>
             <div className='w-full flex flex-col items-center'>

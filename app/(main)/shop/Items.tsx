@@ -58,6 +58,7 @@ const Items = ({ hearts, points, hasActiveSubscription}:Props) => {
                 )}
             </Button>
         </div>
+
         <div className='flex items-center w-full p-4 pt-8 gap-x-4 border-t-2'>
             <Image src="/images/Unlimited.svg" alt='Unlimited' height={60} width={60}/>
             <div className='flex-1'>
@@ -66,10 +67,12 @@ const Items = ({ hearts, points, hasActiveSubscription}:Props) => {
                 </p>
             </div>
             <Button
-            onClick={onUpgrade}
+            variant="secondaryOutline"
+            // onClick={onUpgrade}
                 disabled={pending || hasActiveSubscription}
             >
-                {hasActiveSubscription ? "sittings":"upgrade"}
+                Comming soon...
+                {/* {hasActiveSubscription ? "sittings":"upgrade"}  todo: change to origin when fix subscrition ready*/}
             </Button>
         </div>
     </ul>

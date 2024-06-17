@@ -105,7 +105,7 @@ const Quiz = ({ initailHearts, initailLessonChallenges, initailLessonId, initail
         if(correctOption.id === selectedOption) {
             startTransition(() => {
                 upsetChallengeProgress(challenge.id).then(
-                    (response) => {
+                    (response:any) => {
                         if(response?.error === "hearts") {
                             openHeartModal()
                             return
@@ -157,7 +157,7 @@ const Quiz = ({ initailHearts, initailLessonChallenges, initailLessonId, initail
                     <Image src="/images/congrad.png" alt='Finish' height={50} width={50} className='block lg:hidden'/>
                     <h1 className='text-xl lg:text-3xl font-bold text-neutral-700'>
                         Great job! <br/>
-                        You're completed the lesson.
+                        You&apos;re completed the lesson.
                     </h1>
                     <div className='flex items-center gap-x-4 w-full'>
                         <ResultCard 
