@@ -43,7 +43,7 @@ const Items = ({ hearts, points, hasActiveSubscription}:Props) => {
   return (
     <ul className='w-full'>
         <div className='flex border-t-2 items-center w-full p-4 gap-x-4'>
-            <Image src="/images/heart.png" alt='Heart' height={60} width={60} />
+            <Image src="/images/heart.svg" alt='Heart' height={60} width={60} />
             <div className='flex-1'>
                 <p className='text-neutral-700 text-base lg:text-lg font-bold'>
                     Refill hearts
@@ -59,7 +59,7 @@ const Items = ({ hearts, points, hasActiveSubscription}:Props) => {
             </Button>
         </div>
         <div className='flex items-center w-full p-4 pt-8 gap-x-4 border-t-2'>
-            <Image src="/images/heard.svg" alt='Unlimited' height={60} width={60}/>
+            <Image src="/images/Unlimited.svg" alt='Unlimited' height={60} width={60}/>
             <div className='flex-1'>
                 <p className='text-neutral-700 text-base lg:text-lg font-bold'>
                     Unlimited hearts

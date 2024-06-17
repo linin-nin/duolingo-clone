@@ -26,35 +26,47 @@ const main = async () => {
             title: "Korean",
             imageSrc: "/images/kr.svg"
             },
-            {
-            id: 2,
-            title: "Japaness",
-            imageSrc: "/images/jp.svg"
-            },
-            {
-            id: 3,
-            title: "Khmer",
-            imageSrc: "/images/cd.svg"
-            },
+            // {
+            // id: 2,
+            // title: "Japaness",
+            // imageSrc: "/images/jp.svg"
+            // },
+            // {
+            // id: 3,
+            // title: "Khmer",
+            // imageSrc: "/images/cd.svg"
+            // },
             {
             id: 4,
             title: "English",
             imageSrc: "/images/usa.svg"
             },
-            {
-            id: 5,
-            title: "Chiness",
-            imageSrc: "/images/ch.svg"
-            },
+            // {
+            // id: 5,
+            // title: "Chiness",
+            // imageSrc: "/images/ch.svg"
+            // },
+            // {
+            // id: 6,
+            // title: "France",
+            // imageSrc: "/images/fr.svg"
+            // },
         ])
 
         await db.insert(schema.units).values([
             {
                 id: 1,
-                courseId: 1,
+                courseId: 4,
                 title: "Unit 1",
-                Description: "Learn the basics of Korean",
+                Description: "Everthing about nouns",
                 order: 1
+            },
+            {
+                id: 2,
+                courseId: 4,
+                title: "Unit 2",
+                Description: "Everthing about Verb",
+                order: 2
             },
         ])
 
@@ -69,19 +81,13 @@ const main = async () => {
                 id: 2,
                 unitId: 1,
                 order: 2,
-                title: "Verbs"
+                title: "Pronoune"
             },
             {
                 id: 3,
                 unitId: 1,
                 order: 3,
-                title: "Verbs"
-            },
-            {
-                id: 4,
-                unitId: 1,
-                order: 4,
-                title: "Verbs"
+                title: "Family Name"
             },
         ])
 
@@ -91,14 +97,28 @@ const main = async () => {
                 lessonId: 1,
                 type: "SELECT",
                 order: 1,
-                question: 'Which one of these is the "The duck"?',
+                question: 'Which one of these is the "a duck"?',
             },
             {
                 id: 2,
+                lessonId: 1,
+                type: "SELECT",
+                order: 2,
+                question: 'Which one of these is "a crocodile"?',
+            },
+            {
+                id: 3,
+                lessonId: 1,
+                type: "SELECT",
+                order: 2,
+                question: 'Which one of these is "a Human"?',
+            },
+            {
+                id: 4,
                 lessonId: 2,
                 type: "SELECT",
                 order: 2,
-                question: 'Which one of these is the "The crocodile"?',
+                question: 'Which one of these is "a Man"?',
             },
         ])
 
@@ -125,6 +145,56 @@ const main = async () => {
                 imageSrc: "/images/crocodile.png",
                 correct: false,
                 text: "Crocodile",
+                audioSrc: "/audios/audio2.ogg"
+            },
+
+            {
+                id: 4,
+                challengId: 2,
+                imageSrc: "/images/crocodile.png",
+                correct: false,
+                text: "Crocodile",
+                audioSrc: "/audios/audio2.ogg"
+            },
+            {
+                id: 5,
+                challengId: 2,
+                imageSrc: "/images/duck.png",
+                correct: false,
+                text: "Duck",
+                audioSrc: "/audios/audio2.ogg"
+            },
+            {
+                id: 6,
+                challengId: 2,
+                imageSrc: "/images/cow.png",
+                correct: true,
+                text: "Cow",
+                audioSrc: "/audios/audio2.ogg"
+            },
+
+            {
+                id: 7,
+                challengId: 3,
+                imageSrc: "/images/crocodile.png",
+                correct: false,
+                text: "Crocodile",
+                audioSrc: "/audios/audio2.ogg"
+            },
+            {
+                id: 8,
+                challengId: 3,
+                imageSrc: "/images/duck.png",
+                correct: false,
+                text: "Duck",
+                audioSrc: "/audios/audio2.ogg"
+            },
+            {
+                id: 9,
+                challengId: 3,
+                imageSrc: "/images/cow.png",
+                correct: true,
+                text: "Cow",
                 audioSrc: "/audios/audio2.ogg"
             },
         ])

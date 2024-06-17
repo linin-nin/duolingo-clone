@@ -8,7 +8,7 @@ interface Props {
 }
 const ResultCard = ({ value, variant}:Props) => {
 
-    const imageSrc = variant === "hearts" ?  "/images/heart.png" : "/images/point.png"
+    const imageSrc = variant === "hearts" ?  "/images/heart.svg" : "/images/point.svg"
   return (
     <div className={cn(
         "rounded-2xl border-2 w-full",

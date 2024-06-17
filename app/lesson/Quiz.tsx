@@ -68,9 +68,7 @@ const Quiz = ({ initailHearts, initailLessonChallenges, initailLessonId, initail
     const [status, setStatus] = useState<"correct" | "wrong" | "none">("none")
 
     const challenge = challenges[activeIndex]
-    const options = challenge.challengeOptions
-
-    console.log(options)
+    const options = challenge?.challengeOptions ?? []
 
     const onNext = () => {
         setActiveIndex((current) => current + 1)
@@ -155,8 +153,8 @@ const Quiz = ({ initailHearts, initailLessonChallenges, initailLessonId, initail
                     tweenDuration={10000}
                 />
                <div className='flex flex-col gap-y-4 lg:gap-y-8 max-w-lg mx-auto text-center items-center justify-center h-full'>
-                    <Image src="/images/finish.png" alt='Finish' height={100} width={100} className='hidden lg:block'/>
-                    <Image src="/images/finish.png" alt='Finish' height={50} width={50} className='block lg:hidden'/>
+                    <Image src="/images/congrad.svg" alt='Finish' height={100} width={100} className='hidden lg:block'/>
+                    <Image src="/images/congrad.png" alt='Finish' height={50} width={50} className='block lg:hidden'/>
                     <h1 className='text-xl lg:text-3xl font-bold text-neutral-700'>
                         Great job! <br/>
                         You're completed the lesson.
@@ -200,7 +198,7 @@ const Quiz = ({ initailHearts, initailLessonChallenges, initailLessonId, initail
                         {title}
                     </h1>
                     <div>
-                        {challenge.type === 'SELECT' && (
+                        {challenge.type === 'ASSIST' && (
                             <QuestionBubble question={challenge.question}/>
                         )}
                         <Challenge 

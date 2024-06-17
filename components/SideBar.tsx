@@ -30,6 +30,7 @@ const SideBar = ({className}: Props) => {
       </div>
 
       <div className='p-4'>
+        {/* Hello */}
         <ClerkLoading>
           <Loader className='h-5 text-muted-foreground w-5 animate-spin'/>
         </ClerkLoading>

@@ -1,4 +1,4 @@
-import { cache, useId } from "react";
+import { cache } from "react";
 import db from "./drizzle";
 import { auth } from "@clerk/nextjs/server";
 import { eq } from "drizzle-orm";
@@ -211,12 +211,9 @@ export const getUserSubscription = cache(async () => {
     const data = db.query.userSubscription.findFirst({
         where: eq(userSubscription.userId, userId),
     })
-
     if(!data) return null
 
-    const isActive = 
-        data.stripePriceId && 
-        data.stripeCurrentPeriodEnd.getTime()! + DAY_IN_MS > Date.now()
+    const isActive = data.stripePriceId && data.stripeCurrentPeriodEnd?.getTime()! + DAY_IN_MS > Date.now()
 
     return {
         ...data,
@@ -226,7 +223,6 @@ export const getUserSubscription = cache(async () => {
 })
 
 export const getTopTenUsers = cache(async () => {
-
     const {userId} = await auth()
     if(!userId) return []
     const data = await db.query.userProgress.findMany({
