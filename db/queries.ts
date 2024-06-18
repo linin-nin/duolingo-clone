@@ -24,7 +24,6 @@ export const getUserProgress = cache(async () => {
 
 export const getCourese = cache(async () => {
     const data = await db.query.courses.findMany();
-
     return data;
 })
 
