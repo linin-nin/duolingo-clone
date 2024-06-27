@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div className="max-w-[988px] items-center mx-auto justify-center p-4 gap-2 flex-1 w-full flex flex-col lg:flex-row">
       <div className="relative w-[240px] h-[240px] lg:w-[424px] lg:h-[424px] mb-8 lg:mb-0">
-        <Image src="/images/hero.png" alt="Hero" fill/>
+        <Image src="/images/hero.svg" alt="Hero" fill/>
       </div>
       <div className="flex flex-col items-center gap-y-8">
         <h1 className="text-xl lg:text-3xl font-bold text-neutral-600 max-w-[480px] text-center">

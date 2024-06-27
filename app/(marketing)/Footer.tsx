@@ -8,23 +8,23 @@ const Footer = () => {
       <div className='lg:max-w-screen-lg mx-auto flex items-center justify-evenly h-full'>
         <Button className='-w-full' size="lg" variant="ghost">
           <Image height={32} width={40} src="/images/cd.svg" alt="Croatian" className='mr-4'/>
-          Croatian
+          Khmer
         </Button>
         <Button className='-w-full' size="lg" variant="ghost">
           <Image height={32} width={40} src="/images/kr.svg" alt="Croatian" className='mr-4'/>
-          Croatian
+          Korean
         </Button>
         <Button className='-w-full' size="lg" variant="ghost">
           <Image height={32} width={40} src="/images/jp.svg" alt="Croatian" className='mr-4'/>
-          Croatian
+          Japaness
         </Button>
         <Button className='-w-full' size="lg" variant="ghost">
           <Image height={32} width={40} src="/images/usa.svg" alt="Croatian" className='mr-4'/>
-          Croatian
+          English
         </Button>
         <Button className='-w-full' size="lg" variant="ghost">
           <Image height={32} width={40} src="/images/ch.svg" alt="Croatian" className='mr-4'/>
-          Croatian
+          Chiness
         </Button>
       </div>
     </footer>
