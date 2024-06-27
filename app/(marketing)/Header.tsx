@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button'
 import { ClerkLoaded, ClerkLoading, SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 import { Loader } from 'lucide-react'
 import Image from 'next/image'
+import { redirect } from 'next/navigation'
 import React from 'react'
 
 const Header = () => {
@@ -19,11 +20,15 @@ const Header = () => {
           </ClerkLoading>
 
           <ClerkLoaded>
+
             <SignedIn>
+              {/* {redirect('/learn')} */}
               <UserButton 
+                // signInUrl='/learn'
                 afterSignOutUrl='/'
               />
             </SignedIn>
+
             <SignedOut>
               <SignInButton 
               mode="modal" 
@@ -34,6 +39,7 @@ const Header = () => {
               </Button>
               </SignInButton>
             </SignedOut>
+
           </ClerkLoaded>
         </div>
     </header>
