@@ -4,16 +4,18 @@ import { getisAdmin } from "@/lib/admin"
 import { NextResponse } from "next/server"
 
 
-
 export const GET = async () => {
     const isAdmin = await getisAdmin()
     if(!isAdmin) 
         return new NextResponse("Unauthorized", { status: 401})
 
     const data = await db.query.courses.findMany()
-
+    console.log(data)
     return NextResponse.json(data)
+
 }
+
+
 
 export const POST = async (req: Request) => {
     const isAdmin = await getisAdmin()

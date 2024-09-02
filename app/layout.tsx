@@ -10,7 +10,7 @@ import PracticeModal from "@/components/modals/practiceModal";
 const nunito = Nunito({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Lingo - The best place to learn languages",
+  title: "Quizzz - Learning by quizing",
   description: "With our web and a few minutes a day, everyone can improve thier languages",
   icons: {
     icon: "/images/duck.png"

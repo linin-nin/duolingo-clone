@@ -17,7 +17,7 @@ const SideBar = ({className}: Props) => {
         <div className='pt-8 pl-4 pb-7 flex items-center gap-x-3'>
           <Image src="/images/duck.png" alt='logo' width={40} height={40}/>
           <h1 className='text-2xl font-extrabold text-green-600 tracking-wide'>
-            Duolingo
+            Quizzz
           </h1>
         </div>
       </Link>

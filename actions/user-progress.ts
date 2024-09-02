@@ -52,9 +52,6 @@ export const upsertUserProgress = async (courseId: number) => {
     revalidatePath("/courses")
     revalidatePath("/learn")
     redirect("/learn")
-    // return (
-
-    // )
 }
 
 export const reduceHearts = async (challengeId: number) => {
